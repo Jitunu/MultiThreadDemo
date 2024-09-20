@@ -9,5 +9,6 @@
         <module name="MultiThreadingDemo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="16" />
   </component>
 </project>

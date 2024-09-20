@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    let counter = 1;
+    let winCount = 0;
+
+	function myFunctionCorrectAns(val){
+
+    	let x = "Archie";
+        if(x == document.getElementById(val).value) {
+          document.getElementById(val).style.fontSize = "20px";
+          document.getElementById(val).style.background = "LightGreen";
+          winCount = winCount +1;
+        }
+        else {
+          document.getElementById(val).style.background = "Red";
+        }
+    }
+
+   function secondQaCorrectAns(val3){
+      let ans = "Charles Babbage"
+      let compare = document.getElementById(val3).value;
+      if(ans == compare){
+        document.getElementById(val3).style.background = "lightGreen"
+        winCount = winCount +1;
+      }
+      else{
+        document.getElementById(val3).style.background = "red"
+      }
+   }
+  function thirdQaCorrectAns(val4){
+      let ansOfThirdQ = "1000,000,000 bytes"
+      let compare3 = document.getElementById(val4).value;
+      if(ansOfThirdQ == compare3){
+        document.getElementById(val4).style.background = "lightGreen";
+        winCount = winCount +1;
+      }
+      else{document.getElementById(val4).style.background = "red"}
+   }
+  function forthQaCorrectAns(val5){
+      let ansOfFourthQ = "DBMS"
+      let compare4 = document.getElementById(val5).value;
+      if(ansOfFourthQ == compare4){
+        document.getElementById(val5).style.background = "lightGreen";
+        winCount = winCount +1;
+      }
+      else{document.getElementById(val5).style.background = "red"}
+   }
+  function fifthQaCorrectAns(val6){
+    let ansOfFifthQ = "ROM";
+    let compare5 = document.getElementById(val6).value;
+    if(ansOfFifthQ==compare5){
+      document.getElementById(val6).style.background = "lightGreen"
+      winCount = winCount +1;
+    }
+    else{
+      document.getElementById(val6).style.background = "red"
+      }
+  }
+  function myFunctionNavigation(val2){
+        let Next = "Next";
+        let Back = "Back";
+        let Finish = "Finish";
+
+        if (Next == val2){
+          counter = counter+1;
+<!--          document.getElementById(val2).style.background = "LightGreen";-->
+<!--          document.getElementById(val2).style.fontSize = "20px";-->
+          document.getElementById("Back").style.display = "block";
+           document.getElementById("Finish").style.display = "none";
+
+          if(counter>4){
+            document.getElementById("Finish").style.display = "block";
+            document.getElementById("Next").style.display = "none";
+          }
+
+
+          document.getElementById("question" + (counter-1)).style.display = "none";
+          document.getElementById("question" + counter).style.display = "block";
+        }
+        else if(Back == val2){
+            if(counter > 1){
+              counter = counter-1;
+            }
+
+            document.getElementById(val2).style.background = "Tomato";
+            document.getElementById(val2).style.fontSize = "20px";
+            document.getElementById("question" + counter).style.display = "block";
+            document.getElementById("question" + (counter+1)).style.display = "none";
+            document.getElementById("question" + (counter-1)).style.display = "none";
+
+        }
+        else if (Finish == val2){
+          document.getElementById(val2).style.background = "LightGreen";
+          document.getElementById("fullView").style.display = "none";
+          document.getElementById("score").style.display = "block";
+          document.getElementById("score").innerHTML = "Your Score is " + (winCount);
+
+        }
+         else{
+          document.getElementById(val2).style.background = "red";
+          document.getElementById(val2).style.fontSize = "20px";
+        }
+   }
+ function finalAnswer(){
+    alert(winCount);
+    document.getElementById("score").innerHTML= winCount;
+ }
+</script>
+</head>
+<style>
+	body{ background:black;}
+
+	h1{ display: flex;
+	    background:green;
+        padding:15px 0;
+	    color:white;
+	    text-align:center;}
+
+    p{ display: flexbox;
+	   background: white;
+       padding:10px 0;
+	   color:black;
+	   text-align:center;}
+
+   button{ background: green;
+		   color:white;
+		   border:	white;}
+
+   input{ background: green;
+		  color:white;
+		  border:white;
+		  padding : 10px;
+		  font-size: 15px;}
+  h2{   display: flex;
+	    background:skyBlue;
+        padding:15px 0;
+	    color:white;
+	    text-align:center;
+	    font-size: 40px;}
+
+#fullView{
+background: blue;
+
+}
+
+#question1{
+background: red;
+}
+
+<!--Tag and ID-->  css = div#question1
+<!--Tag and class--> css = div.Roza
+<!--Tag and attribute--> css = button[value= google]
+<!--Tag, class, and attribute--> css = div.Roza[name = question1]
+
+
+//#id attribute of an element
+//.class attribute of an element
+
+</style>
+<body>
+<h1>    QUIZ   </h1>
+
+<div id="fullView">
+
+<div id = "question1" class="Roza" name = "question1">
+<p><b>  Q1. Which one is the first search engine in internet? </b></p>
+
+<ul>
+  <li>
+    <button onclick="myFunctionCorrectAns('NA')" id="NA" type="Radio" value = "Google"> <b>(A). Google</b>
+    </button>
+  </li>
+  <li>
+    <button onclick="myFunctionCorrectAns('CA')" id ="CA" type="Radio" name = "Archie" value ="Archie"><b>(B). Archie</b>
+    </button>
+  </li>
+  <li>
+    <button onclick="myFunctionCorrectAns('NA1')" id ="NA1" type="Radio" value ="Altavlsta"><b>(C). Altavlsta</b>
+    </button>
+  </li>
+  <li>
+    <button onclick="myFunctionCorrectAns('NA2')" id="NA2" type="Radio" value ="WAIS"><b>(D). WAIS</b>
+    </button>
+  </li>
+  </ul>
+</div>
+
+<div id = "question2" style="display: none">
+  <div>
+    <img src="C:\Users\JITUNU\Desktop\charles_babbage_(1792-1871).jpg" height="150" width="150">
+  </div>
+  <p><b> Q2. Who is he? </b></p>
+
+  <ul>
+    <li>
+      <button onclick="secondQaCorrectAns('CAQ2')" id="CAQ2" type="Radio" value = "Charles Babbage"> <b>(A).Charles Babbage</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="secondQaCorrectAns('NAQ2')" id ="NAQ2" type="Radio"  value ="Konrad Zuse"><b>(B).Konrad Zuse</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="secondQaCorrectAns('NA1Q2')" id ="NA1Q2" type="Radio" value ="John Vincent Atanasoff"><b>(C).John Vincent Atanasoff</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="secondQaCorrectAns('NA2Q2')" id="NA2Q2" type="Radio" value ="Alan Turing"><b>(D).Alan Turing</b>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div id = "question3" style="display: none">
+
+  <p><b> Q3. One Gigabyte is approximately equal is?</b></p>
+
+  <ul>
+    <li>
+      <button onclick="thirdQaCorrectAns('NAQ3')" id="NAQ3" type="Radio" value = "1000,000 bytes"> <b>(A).1000,000 bytes</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="thirdQaCorrectAns('CAQ3')" id ="CAQ3" type="Radio"  value ="1000,000,000 bytes"><b> (B).1000,000,000 bytes</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="thirdQaCorrectAns('NA1Q3')" id ="NA1Q3" type="Radio" value ="1000,000,000,000 bytes"><b>(C).1000,000,000,000 bytes</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="thirdQaCorrectAns('NA2Q3')" id="NA2Q3" type="Radio" value ="None of these"><b>(D).None of these</b>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id = "question4" style="display: none">
+
+  <p><b> Q4. Which of the following is used to Manage DataBase? </b></p>
+
+  <ul>
+    <li>
+      <button onclick="forthQaCorrectAns('NAQ4')" id="NAQ4" type="Radio" value = "Operating System"> <b>(A).Operating System</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="forthQaCorrectAns('NA1Q4')" id ="NA1Q4" type="Radio"  value ="Compiler"><b>(B).Compiler</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="forthQaCorrectAns('CAQ4')" id ="CAQ4" type="Radio" value ="DBMS"><b>(C).DBMS</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="forthQaCorrectAns('NA2Q4')" id="NA2Q4" type="Radio" value ="None of the above"><b>(D).None of the above</b>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id = "question5" style="display: none">
+
+  <p><b> Q5. Which of the following is an example of non-volatile memory? </b></p>
+
+  <ul>
+    <li>
+      <button onclick="fifthQaCorrectAns('NAQ5')" id="NAQ5" type="Radio" value = "Cache Memory"> <b> (A).Cache Memory</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="fifthQaCorrectAns('NA1Q5')" id ="NA1Q5" type="Radio"  value ="RAM"><b> (B).RAM</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="fifthQaCorrectAns('CAQ5')" id ="CAQ5" type="Radio" value ="ROM"><b>(C).ROM</b>
+      </button>
+    </li>
+    <li>
+      <button onclick="fifthQaCorrectAns('NA2Q5')" id="NA2Q5" type="Radio" value ="None of the above"><b>(D).None of the above</b>
+      </button>
+    </li>
+  </ul>
+</div>
+
+    <br>
+    <br>
+    <br>
+
+<div id="navigation" >
+    <input onclick = "myFunctionNavigation('Exit')"   id ="Exit" type = "Submit" value = "Exit" />
+    <input onclick = "myFunctionNavigation('Next')"   id ="Next" type = "Submit" value = "Next" />
+    <input onclick = "myFunctionNavigation('Finish')" id ="Finish" type = "Submit" value = "Finish" style="display: none" />
+    <input onclick = "myFunctionNavigation('Back')"   id ="Back" type = "Submit" value = "Back" style="display: none" />
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<h2 id="score"  onclick="finalAnswer()" style="display: none"> </h2>
+</body>
+</html>
+
+
+
+
